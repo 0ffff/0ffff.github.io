@@ -10,7 +10,8 @@
 
     <!--Description-->
     
-        <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in ">
+        <meta name="description" content="C语言指针的理解指针的定义：在计算机科学中，指针（Pointer）是编程语言中的一个对象，利用地址，它的值直接指向（points to）存在电脑存储器中另一个地方的值。由于通过地址能找到所需的变量单元，可以说，地址指向该变量单元。因此，将地址形象化的称为“指针”。
+指针图示：12int x=10;/">
     
 
     <!--Author-->
@@ -20,7 +21,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Hello World"/>
+        <meta property="og:title" content="C语言指针"/>
     
 
     <!--Open Graph Description-->
@@ -42,7 +43,7 @@
 
     <!-- Title -->
     
-    <title>Hello World - Hexo</title>
+    <title>C语言指针 - Hexo</title>
 
     <!-- Tachyons Core CSS -->
     <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
@@ -122,8 +123,8 @@
     <!-- Title -->
     <div class="w-100 mw8 center vh-40 dt">
         <div class="dtc v-mid white">
-            <h1 class="f1-l f2-m tc tc-m tl-ns">Hello World</h1>
-            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2018-08-29</p>
+            <h1 class="f1-l f2-m tc tc-m tl-ns">C语言指针</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2018-08-21</p>
         </div>
     </div>
 
@@ -141,20 +142,32 @@
                 <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
                     <!-- Tags Vertical -->
                     
+                        <div class="tags-container-vertical">
+                            <div class="tags-sub-container">
+                                <a class="fw3 ph1 dib" href="/tags/指针/">#指针</a>
+                            </div>
+                        </div>
+                    
 
                     <!-- Main Post Content -->
-                    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+                    <h1 id="C语言指针的理解"><a href="#C语言指针的理解" class="headerlink" title="C语言指针的理解"></a>C语言指针的理解</h1><h3 id="指针的定义："><a href="#指针的定义：" class="headerlink" title="指针的定义："></a>指针的定义：</h3><p>在计算机科学中，指针（Pointer）是编程语言中的一个对象，利用地址，它的值直接指向（points to）存在电脑存储器中另一个地方的值。由于通过地址能找到所需的变量单元，可以说，地址指向该变量单元。因此，将地址形象化的称为“指针”。</p>
+<h3 id="指针图示："><a href="#指针图示：" class="headerlink" title="指针图示："></a>指针图示：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int x=10;//在内存中分配四个字节的，并赋值为10</span><br><span class="line">int *p=&amp;a;//p指向a;</span><br></pre></td></tr></table></figure>
+<p><img src="C语言指针/CPionter.JPEG" alt="指针"></p>
+<h3 id="数组指针"><a href="#数组指针" class="headerlink" title="数组指针"></a>数组指针</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int a[3]=&#123;5,2,1&#125;;//声明一个数组并赋值</span><br><span class="line"></span><br><span class="line">int *p;//声明指向int类型数据的指针</span><br><span class="line"></span><br><span class="line">p=a;//a代表数组a 第一个数据的地址</span><br><span class="line"></span><br><span class="line">p=p+1;//指针+1，说明指针移向数据a的第二个数据</span><br></pre></td></tr></table></figure>
+<h3 id="交换两个数的值"><a href="#交换两个数的值" class="headerlink" title="交换两个数的值"></a>交换两个数的值</h3><p>错误写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//求最大值</span><br><span class="line">void Swap(int a,int b)</span><br><span class="line">&#123;</span><br><span class="line">	int midd;</span><br><span class="line">	midd=b;</span><br><span class="line">	b=a;</span><br><span class="line">	a=midd;</span><br><span class="line">&#125;</span><br><span class="line">//入口函数</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int numa=5;</span><br><span class="line">	int numb=6;</span><br><span class="line">	int maxnum;</span><br><span class="line">	Swap(numa,numb);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>分析：numa 值赋给a ,numb值赋值给b。<br>在内存中，开辟了一个4字节的空间，名字为a,值为5;开辟了一个4字节的空间，名字为b，值为6；<br>函数交换了a,b的值。函数结束之后，内存中释放了 a,b;<br>所以，函数执行完后，numa=5;numb=6;</p>
+<p>正确写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">void Swap(int *a,int *b)</span><br><span class="line">&#123;</span><br><span class="line">	int midd;</span><br><span class="line">	midd=*b;</span><br><span class="line">	*b=*a;</span><br><span class="line">	*=midd;</span><br><span class="line">&#125;</span><br><span class="line">//入口函数</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int numa=5;</span><br><span class="line">	int numb=6;</span><br><span class="line">	int maxnum;</span><br><span class="line">	Swap(&amp;numa,&amp;numb);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>分析：在内存中声明一个指针a,并指向numa;声明一个指针b,并指向numb;<br>交换后 a指针指向的int型数据 与b指针指向的int型数据交换。最后释放了a,b;</p>
+<h3 id="指针的深入"><a href="#指针的深入" class="headerlink" title="指针的深入"></a>指针的深入</h3><p><a href="https://www.bilibili.com/video/av9855378?from=search&amp;seid=9172064685291858825" target="_blank" rel="noopener">视频地址：轻松理解指针双重指针</a></p>
 
                     
                     <!-- Tags Bottom -->
+                    
+                        <div class="tags-container-bottom">
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/tags/指针/">#指针</a>
+                        </div>
                     
 
                     <!-- Comments -->

@@ -83,4 +83,27 @@
     
   </entry>
   
+  <entry>
+    <title>C语言指针</title>
+    <link href="http://yoursite.com/2018/08/21/C%E8%AF%AD%E8%A8%80%E6%8C%87%E9%92%88/"/>
+    <id>http://yoursite.com/2018/08/21/C语言指针/</id>
+    <published>2018-08-21T11:33:56.000Z</published>
+    <updated>2018-08-21T14:05:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="C语言指针的理解"><a href="#C语言指针的理解" class="headerlink" title="C语言指针的理解"></a>C语言指针的理解</h1><h3 id="指针的定义："><a href="#指针的定义：" class="headerlink" title="指针的定义："></a>指针的定义：</h3><p>在计算机科学中，指针（Pointer）是编程语言中的一个对象，利用地址，它的值直接指向（points to）存在电脑存储器中另一个地方的值。由于通过地址能找到所需的变量单元，可以说，地址指向该变量单元。因此，将地址形象化的称为“指针”。</p><h3 id="指针图示："><a href="#指针图示：" class="headerlink" title="指针图示："></a>指针图示：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int x=10;//在内存中分配四个字节的，并赋值为10</span><br><span class="line">int *p=&amp;a;//p指向a;</span><br></pre></td></tr></table></figure><p><img src="C语言指针/CPionter.JPEG" alt="指针"></p><h3 id="数组指针"><a href="#数组指针" class="headerlink" title="数组指针"></a>数组指针</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int a[3]=&#123;5,2,1&#125;;//声明一个数组并赋值</span><br><span class="line"></span><br><span class="line">int *p;//声明指向int类型数据的指针</span><br><span class="line"></span><br><span class="line">p=a;//a代表数组a 第一个数据的地址</span><br><span class="line"></span><br><span class="line">p=p+1;//指针+1，说明指针移向数据a的第二个数据</span><br></pre></td></tr></table></figure><h3 id="交换两个数的值"><a href="#交换两个数的值" class="headerlink" title="交换两个数的值"></a>交换两个数的值</h3><p>错误写法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//求最大值</span><br><span class="line">void Swap(int a,int b)</span><br><span class="line">&#123;</span><br><span class="line">int midd;</span><br><span class="line">midd=b;</span><br><span class="line">b=a;</span><br><span class="line">a=midd;</span><br><span class="line">&#125;</span><br><span class="line">//入口函数</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">int numa=5;</span><br><span class="line">int numb=6;</span><br><span class="line">int maxnum;</span><br><span class="line">Swap(numa,numb);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>分析：numa 值赋给a ,numb值赋值给b。<br>在内存中，开辟了一个4字节的空间，名字为a,值为5;开辟了一个4字节的空间，名字为b，值为6；<br>函数交换了a,b的值。函数结束之后，内存中释放了 a,b;<br>所以，函数执行完后，numa=5;numb=6;</p><p>正确写法：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">void Swap(int *a,int *b)</span><br><span class="line">&#123;</span><br><span class="line">int midd;</span><br><span class="line">midd=*b;</span><br><span class="line">*b=*a;</span><br><span class="line">*=midd;</span><br><span class="line">&#125;</span><br><span class="line">//入口函数</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">int numa=5;</span><br><span class="line">int numb=6;</span><br><span class="line">int maxnum;</span><br><span class="line">Swap(&amp;numa,&amp;numb);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>分析：在内存中声明一个指针a,并指向numa;声明一个指针b,并指向numb;<br>交换后 a指针指向的int型数据 与b指针指向的int型数据交换。最后释放了a,b;</p><h3 id="指针的深入"><a href="#指针的深入" class="headerlink" title="指针的深入"></a>指针的深入</h3><p><a href="https://www.bilibili.com/video/av9855378?from=search&amp;seid=9172064685291858825" target="_blank" rel="noopener">视频地址：轻松理解指针双重指针</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;C语言指针的理解&quot;&gt;&lt;a href=&quot;#C语言指针的理解&quot; class=&quot;headerlink&quot; title=&quot;C语言指针的理解&quot;&gt;&lt;/a&gt;C语言指针的理解&lt;/h1&gt;&lt;h3 id=&quot;指针的定义：&quot;&gt;&lt;a href=&quot;#指针的定义：&quot; class=&quot;headerli
+      
+    
+    </summary>
+    
+    
+      <category term="指针" scheme="http://yoursite.com/tags/%E6%8C%87%E9%92%88/"/>
+    
+  </entry>
+  
 </feed>
