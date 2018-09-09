@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-29T07:16:26.515Z</updated>
+  <updated>2018-09-09T07:20:20.545Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2019网易校招编程1</title>
+    <link href="http://yoursite.com/2018/09/09/2019%E7%BD%91%E6%98%93%E6%A0%A1%E6%8B%9B%E7%BC%96%E7%A8%8B1/"/>
+    <id>http://yoursite.com/2018/09/09/2019网易校招编程1/</id>
+    <published>2018-09-09T07:01:50.000Z</published>
+    <updated>2018-09-09T07:20:20.545Z</updated>
+    
+    <content type="html"><![CDATA[<p>####题目描述：<br>小A在一个程序的输出中犯了错误，由于忘记输出空格，他把一个整数N的X进制和Y进制表示连在一起输出，得到了一个无法识别的数字。请你帮助他恢复这个正整数N</p><p>####输入描述</p><blockquote><p>输入的第一行是一个正整数T(0&lt;T&lt;=100),表示有T 个样例。对于每个样例输入X,Y,Z,其中X，Y为进制（2&lt;=X,Y&lt;=16）,Z是一个字符穿，长度不超过62，表示整数N(0&lt;N&lt;2^31-1)的X进制和Y进制连在一起的形式，10-15分别用大写A-F表示。数据保证一定有唯一解。</p></blockquote><h4 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述"></a>输出描述</h4><p>对于每个样例，输出这个数字的10进制表示</p><p>####示例<br>输入</p><blockquote><p>3<br>5 2 113221101000101<br>13 7 1016<br>4 12 2222248A</p></blockquote><p>输出</p><blockquote><p>837<br>13<br>682</p></blockquote><p>暴力解法，仅供参考</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package com.company;import java.util.Scanner;public class Main &#123;    public static void main(String[] args) &#123;// write your code here        Scanner sc = new Scanner(System.in);        int num= sc.nextInt();//输入样例个数        int [] x = new int[num];//X进制        int [] y = new int[num];//Y进制        String [] z = new String[num];        //输入        for (int i=0;i&lt;num;i++) &#123;            x[i]=sc.nextInt();            y[i]=sc.nextInt();            z[i]=sc.next();        &#125;        //判断        for(int i=0;i&lt;num;i++)&#123;            if (x[i]==y[i]) &#123;                int n = z[i].length()/2;                System.out.println(stringToIntBaseX(x[i],z[i].substring(0,n)));            &#125;            else&#123;                for (int k=1;k&lt;z[i].length();k++)&#123;                    if (stringToIntBaseX(x[i],z[i].substring(0,k))-stringToIntBaseX(y[i],z[i].substring(k))==0)&#123;                        System.out.println(stringToIntBaseX(x[i],z[i].substring(0,k)));                        //break;                    &#125;                &#125;            &#125;        &#125;    &#125;    //输入进制类型，字符串    public static  int  stringToIntBaseX(int x,String str)&#123;        int sum=0;        int base=1;        int [] strint = new int[str.length()];        for (int i=0;i&lt;str.length();i++)&#123;            if (str.charAt(i)==&apos;A&apos;||str.charAt(i)==&apos;B&apos;||str.charAt(i)==&apos;C&apos;||str.charAt(i)==&apos;D&apos;||str.charAt(i)==&apos;E&apos;||str.charAt(i)==&apos;F&apos;)                strint[str.length()-i-1]=str.charAt(i)-&apos;A&apos;+10;            else                strint[str.length()-i-1]=str.charAt(i)-&apos;0&apos;;        &#125;        for (int i=0; i&lt;str.length();i++)&#123;            sum+=base*strint[i];            base*=x;        &#125;        return sum;    &#125;&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;####题目描述：&lt;br&gt;小A在一个程序的输出中犯了错误，由于忘记输出空格，他把一个整数N的X进制和Y进制表示连在一起输出，得到了一个无法识别的数字。请你帮助他恢复这个正整数N&lt;/p&gt;
+&lt;p&gt;####输入描述&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;输入的第一行是一个正整数
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
